@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cstring>
 
 using namespace std;
 
@@ -16,52 +15,44 @@ int strCompare(string a, char b){
 int main(){
 	string name;
     string hi;
-    char lastLet = 's';
+    char lastLet[2] = {'a','e'};
 	cout << "Iveskite savo varda: "; cin >> name;
 
+    struct box{
+        string pirmEil;
+        string antrEil;
+        string trecEil;
+    };
 
-    if(strCompare(name, lastLet)==1){
-    hi = "Sveikas, ";
+    box greet;
+
+
+    if(strCompare(name, lastLet[0])==1 || strCompare(name,lastLet[1])==1)
+    {
+        hi = "Sveika, ";
     }
     else{
-    hi = "Sveika, ";
+        hi = "Sveikas, ";
     }
 
 
 	int starNum = hi.size() + name.size();
 
-	string pirmEil, antrEil, ketEil, penkEil;
-	string trecEil;
-
-
 	for(int i=0; i < starNum + 5; i++){ // pirma eilute
-		pirmEil += "*";
+		greet.pirmEil += "*";
 	}
 
-	antrEil += "*"; // antra eilute
+	greet.antrEil += "*"; // antra eilute
 	for(int i=1; i<starNum + 4; i++){
-		antrEil += " ";
+		greet.antrEil += " ";
 		if(i==starNum + 3){
-			antrEil += "*";
+			greet.antrEil += "*";
 		}
 	}
 
-	trecEil = "* " + hi + name + "!" + " *"; // trecia eilute
-	
-	ketEil += "*"; // ketvirta eilute
-	for(int i=1; i<starNum + 4; i++){
-		ketEil += " ";
-		if(i==starNum + 3){
-			ketEil += "*";
-		}
-	}
+	greet.trecEil = "* " + hi + name + "!" + " *"; // trecia eilute
 
-	for(int i=0; i < starNum + 5; i++){ // penkta eilute
-		penkEil += "*";
-	}
-
-
-	cout << pirmEil << endl << antrEil << endl << trecEil << endl <<  ketEil << endl << penkEil << endl;
+	cout << greet.pirmEil << endl << greet.antrEil << endl << greet.trecEil << endl <<  greet.antrEil  << endl << greet.pirmEil << endl;
 	
 
 }
