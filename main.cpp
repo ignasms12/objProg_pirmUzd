@@ -19,9 +19,15 @@ int strCompare(string a, char b){
 }
 
 void printRow(int n, box one){
+    cout << one.pirmEil << endl;
     for(int i=0; i<n; i++){
         cout << one.antrEil<< endl;
     }
+    cout << one.trecEil << endl;
+    for(int i=0; i<n; i++){
+        cout << one.antrEil<< endl;
+    }
+    cout << one.pirmEil << endl;
 }
 
 int main(){
@@ -29,11 +35,11 @@ int main(){
     string hi;
     char lastLet[2] = {'a','e'};
     int remAukstis = 0;
+    box greet;
+
+
 	cout << "Iveskite savo varda: "; cin >> name;
     cout << "Iveskite remelio auksti (nelyginis skaicius): "; cin >> remAukstis; cout << endl;
-    
-
-    box greet;
 
 
     if(strCompare(name, lastLet[0])==1 || strCompare(name,lastLet[1])==1)
@@ -63,16 +69,11 @@ int main(){
 
     int rowNumb = remAukstis - 3;
 
-	cout << greet.pirmEil << endl;
-    
-    printRow(rowNumb/2, greet);
-
-    cout << greet.trecEil << endl;
+    //spausdinimas
 
     printRow(rowNumb/2, greet);
     
-    cout << greet.pirmEil << endl;
     
-	
+    
 
 }
