@@ -2,6 +2,12 @@
 
 using namespace std;
 
+struct box{
+        string pirmEil;
+        string antrEil;
+        string trecEil;
+    };
+
 int strCompare(string a, char b){
     auto it = a.end();
     if(*(it-1) == b){
@@ -12,17 +18,20 @@ int strCompare(string a, char b){
     }    
 }
 
+void printRow(int n, box one){
+    for(int i=0; i<n; i++){
+        cout << one.antrEil<< endl;
+    }
+}
+
 int main(){
 	string name;
     string hi;
     char lastLet[2] = {'a','e'};
+    int remAukstis = 0;
 	cout << "Iveskite savo varda: "; cin >> name;
-
-    struct box{
-        string pirmEil;
-        string antrEil;
-        string trecEil;
-    };
+    cout << "Iveskite remelio auksti (nelyginis skaicius): "; cin >> remAukstis; cout << endl;
+    
 
     box greet;
 
@@ -52,7 +61,18 @@ int main(){
 
 	greet.trecEil = "* " + hi + name + "!" + " *"; // trecia eilute
 
-	cout << greet.pirmEil << endl << greet.antrEil << endl << greet.trecEil << endl <<  greet.antrEil  << endl << greet.pirmEil << endl;
+    int rowNumb = remAukstis - 3;
+
+	cout << greet.pirmEil << endl;
+    
+    printRow(rowNumb/2, greet);
+
+    cout << greet.trecEil << endl;
+
+    printRow(rowNumb/2, greet);
+    
+    cout << greet.pirmEil << endl;
+    
 	
 
 }
