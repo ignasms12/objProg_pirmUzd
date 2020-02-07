@@ -1,30 +1,67 @@
 #include <iostream>
+#include <cstring>
 
 using namespace std;
 
+int strCompare(string a, char b){
+    auto it = a.end();
+    if(*(it-1) == b){
+        return 1;
+    }
+    else{
+        return 0;
+    }    
+}
+
 int main(){
-	string hi = "Sveikas, ";
 	string name;
+    string hi;
+    char lastLet = 's';
 	cout << "Iveskite savo varda: "; cin >> name;
+
+
+    if(strCompare(name, lastLet)==1){
+    hi = "Sveikas, ";
+    }
+    else{
+    hi = "Sveika, ";
+    }
+
 
 	int starNum = hi.size() + name.size();
 
-	char pirmEil[starNum], antrEil[starNum+5], trecEil[6+starNum], ketEil[starNum+5], penkEil[starNum];
+	string pirmEil, antrEil, ketEil, penkEil;
+	string trecEil;
 
-	for(int i=0; i < starNum + 6; i++){ // pirma eilute
-		pirmEil[i] = '*';
+
+	for(int i=0; i < starNum + 5; i++){ // pirma eilute
+		pirmEil += "*";
 	}
 
-	antrEil[0] = '*'; // antra eilute
+	antrEil += "*"; // antra eilute
 	for(int i=1; i<starNum + 4; i++){
-		antrEil[i] = ' ';
-		if(i>starNum + 3){
-			antrEil[i] = '*';
+		antrEil += " ";
+		if(i==starNum + 3){
+			antrEil += "*";
 		}
 	}
 
-	//trecEil = "* " + hi + name + " !" + " *"; // trecia eilute
+	trecEil = "* " + hi + name + "!" + " *"; // trecia eilute
+	
+	ketEil += "*"; // ketvirta eilute
+	for(int i=1; i<starNum + 4; i++){
+		ketEil += " ";
+		if(i==starNum + 3){
+			ketEil += "*";
+		}
+	}
+
+	for(int i=0; i < starNum + 5; i++){ // penkta eilute
+		penkEil += "*";
+	}
+
+
+	cout << pirmEil << endl << antrEil << endl << trecEil << endl <<  ketEil << endl << penkEil << endl;
 	
 
-	cout << pirmEil << endl << antrEil << endl << trecEil << endl;
 }
